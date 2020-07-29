@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <div id="debug"></div>
+    <script>
+        var obj = {
+            firstName: "Jeremy",
+            lastName: "Lin",
+            sayHello: function () {
+                return "Hello I am " + this.firstName;
+            }
+        }
+
+        // debug.innerText = obj.firstName;
+        // debug.innerText = obj["lastName"];
+
+        obj["backNumber"] = 7;
+
+        // debug.innerText = obj.sayHello();
+        var s = '[{"firstName":"Derek","lastName":"Jeter"},{"firstName":"Jeremy","lastName":"Lin"},{"firstName":"Lionel","lastName":"Messi"}]';
+        var objArray = JSON.parse(s);
+        debug.innerHTML = objArray[2].lastName + "<br>";
+
+    </script>
+</body>
+
+</html>
