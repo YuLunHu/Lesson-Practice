@@ -7,13 +7,26 @@
         $(document).ready(function () {
             $("#btnTry").click(function () {
                 // 在這裏寫程式
-                
+                // $("#report").text("ABC");
+                // $("#report").html("line1<br>Line2");
+                // $("#report").append("line1<br>Line2");
 
+                // var s = $("#report").text();
+				        // alert(s);
 
-                
+                // var s = $("#aTextField").attr("value");
+                // $("#report").append(s);
 
-                
-                
+                // var x=$("#aTextField").prop("value", "123");
+                // alert(x);
+
+                // var s = $("input[name='radioGroup']").eq(0).prop("checked", "checked");
+                // $("#report").append("radio C selected.");
+
+                // var s = $("#aTextField").attr("value");
+                // $("#report").append(s);
+
+                // var s = $("#aTextField").attr("value", "Hello!");
                 
             })
         });
@@ -28,7 +41,7 @@
 
 <form action="" method="put" onsubmit="return false;">
   <div>
-    <label>Text:</label> <input type="text" id="aTextField" name="someTextField"/>
+    <label>Text:</label> <input type="text" value="ABC" id="aTextField" name="someTextField"/>
   </div>
   <div>
     <label>Radio group:</label>
@@ -43,7 +56,7 @@
     <input type="checkbox" name="checkboxes" id="checkbox3" value="3" checked="checked"/> 3
     <input type="checkbox" name="checkboxes" id="checkbox4" value="4"/> 4
   </div>
-  <button type="button" id="btnTry">Try</button>
+  <button type="button" id="btnTry" style="color: brown;">Try</button>
 </form>
 </body>
 </html>
