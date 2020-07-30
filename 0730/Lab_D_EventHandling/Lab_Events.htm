@@ -11,16 +11,51 @@
         }
 
         $(document).ready(function () {
-            // 在這裏寫程式
+            ////在這裏寫程式
+
+            $("#btnTry").click( 
+                function () { 
+                    console("btnTry clicked");  
+                }  
+            );
             
+            $("#report").on(
+                "click",
+                function () { 
+                    $("#report").html("Report:<br>");  
+                }  
+            );
             
+            // $("#btnTry").mouseleave(function() {
+            //     console(Date());
+            // })
+
+            $("#panda").on( {
+                "mouseover":
+                function () { 
+                    $("#panda").attr("src", "panda2.jpg");  
+                    console("mouse enter image");
+                },
+                "mouseout":
+                function () { 
+                    $("#panda").attr("src", "panda1.jpg");  
+                    console("mouse leave image");
+                }
+            });
             
-            
-            
-            
-            
+            $("#btnOff").click( 
+                function () { 
+                    $("#panda").off("mouseover");
+                    $("#panda").off("mouseout");
+                }  
+            );
+
+            // $("#btnOff").mouseleave(function() {
+            //     console("leaving Off btn");
+            // })
             
         });
+        
     </script>
 </head>
 <body>
