@@ -13,12 +13,17 @@ Test: <input type="text" id="txtTest" />
 <div id="debug"></div>
 
 <script>
-    function displayTime() {
-        report.innerHTML= Date();
-        setTimeout(displayTime, 1000);
+
+    setInterval(function () {
+        report.innerText= Date();
+    }, 2000)
+
+    // function displayTime() {
+    //     report.innerHTML= Date();
+    //     setTimeout(displayTime, 1000);
         
-    }
-    displayTime();
+    // }
+    // displayTime();
     
     // var data = " \r\n";
     // var xhr = new XMLHttpRequest();
