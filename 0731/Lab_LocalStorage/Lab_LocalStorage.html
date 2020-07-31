@@ -94,12 +94,26 @@ fieldset .submit {
 
 <script>
 	function doChange() {
-		document.getElementById("test").innerHTML += this.name + ":" + this.value + "<br>";
+		// document.getElementById("test").innerHTML += this.name + ":" + this.value + "<br>";
+		localStorage.setItem(this.name, this.value);
 	}
 	
 	document.getElementById("txtName").onkeyup = doChange;
 	document.getElementById("txtEmail").onkeyup = doChange;
 	document.getElementById("txtPhone").onkeyup = doChange;
+
+	function readAndShow() {
+		if (localStorage["txtName"])
+			document.getElementById("txtName").value = localStorage["txtName"];
+		if (localStorage["txtEmail"])
+			document.getElementById("txtEmail").value = localStorage["txtEmail"];
+		if (localStorage["txtPhone"])
+			document.getElementById("txtPhone").value = localStorage["txtPhone"];
+	}
+	
+	window.onload = readAndShow;
+
+	document.forms[0].onsubmit = function () { localStorage.clear(); };
 	
 </script>
 
