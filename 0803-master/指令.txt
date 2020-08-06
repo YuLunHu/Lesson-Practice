@@ -43,3 +43,13 @@ alter table customer drop index uc;
 create unique index idx_company on customer (companyName);
 insert into customer values (4, 'AAA');
 drop index idx_company on customer;
+
+------------------------------------------------------
+以終端機開啟mysql：
+/Applications/MAMP/Library/bin/mysql -uroot -p
+
+-------------------------------------------------
+create table Library
+(
+    id int auto_increment 
+)
