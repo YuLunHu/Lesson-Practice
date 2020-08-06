@@ -1,0 +1,45 @@
+use db08;
+
+drop table customer;
+
+create table customer
+(
+    customerID int primary key,
+    companyName varchar(20)
+);
+
+insert into customer values (1 , 'AAA') (2, 'BBB')
+
+-------------------------------------
+
+use db08;
+drop table orders;
+
+create table orders
+(
+    orderID int primary key,
+    customerID int
+);
+
+alter table orders
+add constraint fk_customer_orders
+foreign key (customerID) references customer (customerID)
+on update cascade
+on delete cascade;
+
+insert into orders values (1 , 1) , (2, 1), (3 , 2)
+
+update customer set customerID = 15000 where customerID = 2
+delete from customer where customerID = 15000
+
+insert into customer values (1, 'Allen'), (2, 'Peggy'), (3, 'Singing')
+update customer set companyName = 'goodbyemylove' where companyName = 'Peggy' or companyName =  'Singing'
+
+----------------------------------------------------------------
+alter table customer add constraint uc unique (companyName);
+insert into customer values (4, 'AAA');
+alter table customer drop index uc;
+
+create unique index idx_company on customer (companyName);
+insert into customer values (4, 'AAA');
+drop index idx_company on customer;
