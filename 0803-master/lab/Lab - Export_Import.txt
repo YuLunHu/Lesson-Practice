@@ -1,11 +1,12 @@
-﻿use northwind;
+﻿/Applications/MAMP/Library/bin/mysql -uroot -p
+use northwind;
 
 -- 匯出產品類別資料
 -- select categoryId, categoryName from categories;
 -- select categoryId, categoryName into outfile 'c:\\temp\\lab.txt' from categories;
 
 select categoryId, categoryName 
-  into outfile 'c:\\temp\\lab.txt' 
+  into outfile '/Applications/MAMP/Library/bin/lab.txt' 
   lines terminated by '\r\n'
   from categories;
 
@@ -26,7 +27,7 @@ create table categories
 -- 特別觀察匯入時的各項數據報告, 例如:
 -- Records: 10  Deleted: 2  Skipped: 0  Warnings: 2
 
-load data infile 'c:\\temp\\lab.txt'
+load data infile '/Applications/MAMP/Library/bin/lab.txt'
   replace
   into table categories
   LINES TERMINATED BY '\r\n';
@@ -46,7 +47,7 @@ create table categories
 );
 
 
-load data infile 'c:\\temp\\lab.txt'
+load data infile '/Applications/MAMP/Library/bin/lab.txt'
   ignore
   into table categories
   LINES TERMINATED BY '\r\n';

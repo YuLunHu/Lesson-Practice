@@ -53,3 +53,9 @@ create table Library
 (
     id int auto_increment 
 )
+
+---------------------------------------------------------------
+單元性 正確性 永久性 隔離性
+------------------------------
+備份使用mysqldump
+/Applications/MAMP/Library/bin/mysqldump -u root --databases -p --opt db08 > /Applications/MAMP/Library/bin/yourdump.txt
