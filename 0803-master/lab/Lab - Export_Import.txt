@@ -3,7 +3,7 @@ use northwind;
 
 -- 匯出產品類別資料
 -- select categoryId, categoryName from categories;
--- select categoryId, categoryName into outfile 'c:\\temp\\lab.txt' from categories;
+-- select categoryId, categoryName into outfile '/Applications/MAMP/Library/bin/lab.txt' from categories;
 
 select categoryId, categoryName 
   into outfile '/Applications/MAMP/Library/bin/lab.txt' 
