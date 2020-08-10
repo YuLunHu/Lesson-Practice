@@ -1,43 +1,68 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Dynamic Image Lab</title>
+	<meta charset="UTF-8">
+	<title>Dynamic Image Lab</title>
 </head>
+
 <body>
 
-<p>...</p>
+	<p>...</p>
 
-<a id="imgshref" href="http://oakland.athletics.mlb.com/" target="_blank">
-  <img src="images/oak.gif" id="imgs" border="0" />
-</a>
+	<a id="imgshref0" href="http://oakland.athletics.mlb.com/" target="_blank">
+		<img src="images/oak.gif" id="imgs0" border="0" />
+	</a>
 
-<p>...</p>
+	<a id="imgshref1" href="" target="_blank">
+		<img src="" id="imgs1" border="0" />
+	</a>
 
-<script type="text/javascript">
+	<a id="imgshref2" href="" target="_blank">
+		<img src="" id="imgs2" border="0" />
+	</a>
 
-setImage();
+	<a id="imgshref3" href="" target="_blank">
+		<img src="" id="imgs3" border="0" />
+	</a>
 
-function setImage()
-{
-	var img = new Array();
-	var url = new Array();
-	img[0] = "images/chc.gif";	url[0] = "http://chicago.cubs.mlb.com/";
-	img[1] = "images/oak.gif";	url[1] = "http://oakland.athletics.mlb.com/";
-	img[2] = "images/sd.gif";	url[2] = "http://sandiego.padres.mlb.com/";
-	img[3] = "images/was.gif";	url[3] = "http://washington.nationals.mlb.com/";
-	
-	// 為什麼圖片都不會變呢？
-	var iImage = 0;
-	iImage += 1;
+	<p>...</p>
 
-	document.getElementById("imgs").src = img[iImage];
-	document.getElementById("imgshref").href = url[iImage];
-	
-	setTimeout(setImage, 1000);
-}
+	<script type="text/javascript">
 
-</script>
+		var img = new Array();
+		var url = new Array();
+		img[0] = "images/chc.gif"; url[0] = "http://chicago.cubs.mlb.com/";
+		img[1] = "images/oak.gif"; url[1] = "http://oakland.athletics.mlb.com/";
+		img[2] = "images/sd.gif"; url[2] = "http://sandiego.padres.mlb.com/";
+		img[3] = "images/was.gif"; url[3] = "http://washington.nationals.mlb.com/";
+
+		let order = 0;
+
+		setImage();
+
+		function setImage() {
+			if (img == 0 || order > 3) return;
+
+			// 為什麼圖片都不會變呢？
+
+			var iImage = Math.floor(Math.random() * img.length);
+
+			document.getElementById("imgs"+order.toString()).src = img[iImage % img.length];
+			document.getElementById("imgshref"+order.toString()).href = url[iImage % img.length];
+
+			order++;
+
+			img.splice(iImage % img.length, 1);
+			url.splice(iImage % img.length, 1);
+
+			// alert(iImage % img.length);
+
+			setTimeout(setImage, 2000);
+		}
+
+	</script>
 
 </body>
+
 </html>

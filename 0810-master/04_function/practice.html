@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function showStar(count) {
+            if (count < 1 || count > 20 || count == 4 || typeof (count) != "number") {
+                return alert("請重新輸入除了４以外且介於１～２０之間的值！");
+            }
+            let star = "";
+            for (let i = 1; i <= count; i++) {
+                star += "*";
+            }
+            alert(star);
+        }
+
+        showStar(4);
+
+    </script>
+</body>
+
+</html>
