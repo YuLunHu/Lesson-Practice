@@ -28,9 +28,9 @@ test.onclick = function () {
     data.sort(function (x, y) {
         console.log(x, y);
         if (x == 2)
-            return 1
+            return 1 // 正的代表x比y大
         else if (y == 2)
-            return -1
+            return -1 // 負的代表x比y小
         else
             return x - y;
     });

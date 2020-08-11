@@ -26,6 +26,7 @@ test.onclick = function () {
     // 你的任務程式...
     
     var dataList = [];
+    dataList = data.map(item => <li>{{item}}</li> + 10);
     
 
     report.innerText = dataList.toString();
