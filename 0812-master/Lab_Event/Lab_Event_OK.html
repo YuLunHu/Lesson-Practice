@@ -61,7 +61,7 @@ a.boxclose {
 
 	<script>
 		function doAnimateShow() {
-			$("#box").css("left", event.x + "px");
+			$("#box").css("left", event.x + "px"); //以jQuery語法改寫
 			$("#box").css("top", event.y + "px");
 
 			// document.getElementById("box").style.left = event.clientX + "px";
@@ -70,8 +70,8 @@ a.boxclose {
 
 		function doAnimateHide() {
 			$("#box").css("top", "-200px");
-
 			// document.getElementById("box").style.top = "-200px";
+
 			// event.cancelBubble = true;
 			event.stopPropagation();
 		}

@@ -16,6 +16,7 @@ function init() {
 function letterChange() {
 	// var s = $("#letter option:selected").val();
 	var s = $("#letter option:selected").text();
+	// alert(s);
 	$("#test").text(s);
 }
 
