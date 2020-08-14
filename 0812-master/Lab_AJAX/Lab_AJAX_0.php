@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="jquery.min.js"></script>
 </head>
 <body>
 
@@ -17,7 +18,7 @@
 
 	<form method="post" action="http://exec.hostzi.com/echo.php">
 		<select name="letter" id="letter">
-			<option value="0">A</option>
+			<option value="0" selected="selected">A</option>
 			<option value="1">B</option>
 			<option value="2">C</option>
 		</select>&nbsp;|&nbsp; 
@@ -30,4 +31,34 @@
 	</form>
 
 </body>
+<div id="debug"></div>
+
+<script type = "text/javascript">
+
+	// var e = document.getElementById("letter");
+	// var strUser = e.options[e.selectedIndex].value;
+	// alert(strUser);
+
+	$(document).ready(setLetterNumber);
+
+	function setLetterNumber () {
+		var selectedLetter = $("#letter option:selected").text();
+		var serverUrl = `./getLetterNumber.php?letter=${selectedLetter}`;
+
+		$.ajax({
+		type: "get",
+		url: serverUrl,
+
+		}).then(function (e) {
+			$("#letterNumber").html(e);
+		})
+	}
+
+	$("#letter").on("change", setLetterNumber);
+	// $("#letter").trigger("change"); // 誘發該事件發生
+
+	
+	
+</script>
+
 </html>
