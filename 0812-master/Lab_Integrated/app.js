@@ -34,7 +34,8 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host : '127.0.0.1',
 	user : 'root',
-	password : '',
+	password : 'root', // 用xampp的話為‘’
+	port : 8889, // 且port不用加
 	database : 'labdb'
 });
 
