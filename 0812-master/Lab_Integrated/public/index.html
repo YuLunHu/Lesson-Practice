@@ -159,42 +159,103 @@
                     { ymd: "2017-05-03", title: "Item 4" },
                     { ymd: "2017-05-04", title: "Item 5" }
                 ];
-        
 
             // 練習與任務:
 
-            $.ajax({
-                type: "get",
-                url: "/home/news"
-            }).then(function (e) {
-                newsList = JSON.parse(e);
-                refreshUI();
-            })
-            
+            function downloadAndRefresh() {
+                $.ajax({
+                    type: "get",
+                    url: "/home/news"
+                }).then(function (e) {
+                    newsList = JSON.parse(e);
+                    refreshUI();
+                })
+            }
+            downloadAndRefresh();
+
             function refreshUI() {
                 $("#latestNews").empty();
 
                 for (let i = 0; i < newsList.length; i++) {
                     var newsItem = newsList[i];
-                    // var liText = "<li>" + newsItem.title + " [" + newsItem.ymd + "]" + "</li>";
-                    // var liText = `<li class="list-group-item">${newsItem.title} [${newsItem.ymd}]</li>`;
-                    // $("#latestNews").append(liText);
-                    // showToast("test", liText);
-
                     var liText = newsItem.title + " [" + newsItem.ymd + "]";
 
                     $li = $("<li></li>")
                         .text(liText)
                         .addClass("list-group-item");
-                    
+
                     $li.append('<span class="pull-right"><button class="btn btn-info btn-xs editItem"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>&nbsp;<button class="btn btn-danger btn-xs deleteItem"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></span>');
 
                     $("#latestNews").append($li);
                     // $li.appendTo("#latestNews");
 
                 }
+
+                $(".editItem").click(function () {
+                    // var iIndex = $(this).parent().parent().index();
+                    var iIndex = $(this).closest("li").index();
+                    currentIndex = iIndex;
+                    $("#titleTextBox").val(newsList[iIndex].title);
+                    $("#ymdTextBox").val(newsList[iIndex].ymd);
+                    $("#newsModal").modal({ backdrop: "static" });
+                })
+
+                $(".deleteItem").on("click", function () {
+                    var index = $(this).closest("li").index();
+                    $.ajax({
+                        type: "delete",
+                        url: "/home/news",
+                        data: newsList[index]
+                    }).then(function (e) {
+                        downloadAndRefresh();
+                    })
+                    alert("刪除 "+ newsList[index].title);
+                })
             }
 
+            $("#newItem").on("click", function () {
+                $("#titleTextBox").val("");
+                $("#ymdTextBox").val("");
+                $("#newsModal").modal({ backdrop: "static" });
+            })
+
+            var currentIndex = -1;
+
+            $("#okButton").on("click", function () {
+                if (currentIndex >= 0) { //修改
+                    newsList[currentIndex].title = $("#titleTextBox").val();
+                    newsList[currentIndex].ymd = $("#ymdTextBox").val();
+                    refreshUI();
+                    $("#newsModal").modal("hide");
+
+                    $.ajax({
+                        type: "put",
+                        url: "/home/news",
+                        data: newsList[currentIndex]
+                    }).then(function (e) {
+                        showToast(e);
+                    })
+
+                }
+                else { //新增
+                    let dataToServer = {
+                        title: $("#titleTextBox").prop("value"),
+                        ymd: $("#ymdTextBox").val()
+                    }
+                    $.ajax({
+                        type: "post",
+                        url: "/home/news",
+                        contentType: "application/json",
+                        data: JSON.stringify(dataToServer)
+                    }).then(function (e) {
+                        $.get("/home/news", function (e) {
+                            newsList = JSON.parse(e);
+                            downloadAndRefresh();
+                        })
+                    })
+                    $("#newsModal").modal("hide");
+                }
+            })
         })  // end of init.
 
     </script>
