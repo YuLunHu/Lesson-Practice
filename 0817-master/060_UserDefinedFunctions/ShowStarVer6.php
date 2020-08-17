@@ -33,5 +33,5 @@ function ShowStar_all($iCount, $sWhat = "*")
 
 // ShowStar(2, "^");
 // ShowStar(null, "$");
-ShowStar();
+ShowStar(15, "%");
 ?>

@@ -9,6 +9,6 @@ function ShowStar($iCount)
 	echo $result;
 }
 
-$iHowMany = 3;
+$iHowMany = 15;
 ShowStar($iHowMany);
 ?>
