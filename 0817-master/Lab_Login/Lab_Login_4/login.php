@@ -2,7 +2,7 @@
 
 if (isset($_GET["logout"]))
 {
-	setcookie("userName", "Guest", time() - 3600);
+	setcookie("userName", "Guest", time() - 3600); // 設定cookie有效期限過期，就能清除
 	header("Location: index.php");
 	exit();
 }

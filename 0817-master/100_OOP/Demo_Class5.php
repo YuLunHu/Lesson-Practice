@@ -7,6 +7,8 @@ $obj->weight = 10;
 $obj->weight = -5;
 echo $obj->weight;
 
+$obj->lacadsda = 3;
+
 
 class CAnimal {
 	public $weight;
@@ -14,8 +16,11 @@ class CAnimal {
 	
 	function __construct() {
 		foreach ( get_class_vars ( "CAnimal" ) as $varName => $varValue ) {
-			if (substr ( $varName, 0, 1 ) != "_")
+			if (substr ( $varName, 0, 1 ) != "_") {
+				echo $this->$varName, "<br>";
 				unset ( $this->$varName );
+			}
+				
 		}
 		
 		$this->weight = 0;

@@ -18,7 +18,6 @@ else {
 <title>Insert title here</title>
 </head>
 <body>
-	
 	<?php echo "Weight = " . $obj->getWeight() . "<br>"?>
 	<?php echo "Price = " . $obj->getPrice() . "<br>"?>
 	<hr>
