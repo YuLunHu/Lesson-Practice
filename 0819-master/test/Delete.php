@@ -16,8 +16,8 @@ $sql = <<< multi
 delete from employee WHERE employeeId = $id
 multi;
 
-echo $sql;
+// echo $sql;
 require_once("command.php");
 mysqli_query($link, $sql);
-header("location: test.php");
+header("location: index.php");
 ?>

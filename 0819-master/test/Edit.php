@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST["cancelButton"])) {
-    header("location: test.php");
+    header("location: index.php");
     exit();
   }
   if (!isset($_GET["id"])) {
@@ -27,7 +27,7 @@ if (isset($_POST["submit"])) {
     // echo $sql;
 
     mysqli_query($link, $sql);
-    header("location: test.php");
+    header("location: index.php");
     exit();
 }
 else {

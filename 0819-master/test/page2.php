@@ -12,7 +12,7 @@ if (isset($_POST["submit"])) {
 
     require_once("command.php");
     mysqli_query($link, $sql);
-    header("location: test.php");
+    header("location: index.php");
 }
 
 

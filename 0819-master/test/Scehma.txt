@@ -21,4 +21,3 @@ create table employee (
 
 insert into employee (firstName, lastName, cityId)
 values ('Allen', 'Hu', 2), ('Chia', 'Chia', 6), ('Babe', 'Ruth', 4)
-
