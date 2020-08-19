@@ -37,7 +37,8 @@ $result = mysqli_query ( $link, $commandText );
 		<a href="employeeDetails.php?id=<?php echo $row["id"] ?>"> 
 			<img src="images/<?php echo $row["picture"]?>">
 			<h4><?php echo $row["firstName"] . " " . $row["lastName"] ?></h4>
-			<p><?php echo $row["title"] ?> </p> <span class="ui-li-count"><?php echo $row["reportCount"] ?></span>
+			<p><?php echo $row["title"] ?> </p> 
+			<span class="ui-li-count"><?php echo $row["reportCount"] ?></span>
 		</a>
 		</li>
 	<?php endwhile ?>
