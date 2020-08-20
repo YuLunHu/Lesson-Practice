@@ -89,8 +89,8 @@ $app = new App();
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
-
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L] // 找不到的檔案都交給index處理
+// ^(.*)$ <- 隨便使用者打 ^：起點 $：終點 
 
 4.3 重新再用瀏覽器測試下列網址: (應該會出現 OK 字樣)
 http://localhost/EasyMVC/ControllerName/MethodName
