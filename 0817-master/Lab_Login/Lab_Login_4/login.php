@@ -1,8 +1,13 @@
 <?php 
+session_start();
+
+// $_SESSION['userName'] = "Guest";
+// echo $_SESSION['userName'];
 
 if (isset($_GET["logout"]))
 {
-	setcookie("userName", "Guest", time() - 3600); // 設定cookie有效期限過期，就能清除
+  // setcookie("userName", "Guest", time() - 3600); // 設定cookie有效期限過期，就能清除
+  $_SESSION['userName'] = "Guest";
 	header("Location: index.php");
 	exit();
 }
@@ -18,9 +23,10 @@ if (isset($_POST["btnOK"]))
 	$sUserName = $_POST["txtUserName"];
 	if (trim($sUserName) != "")
 	{
-		setcookie("userName", $sUserName);
-		if (isset($_COOKIE["lastPage"]))
-		  header(sprintf("Location: %s", $_COOKIE["lastPage"]));
+    // setcookie("userName", $sUserName);
+    $_SESSION['userName'] = $sUserName;
+		if (isset($_SESSION["lastPage"]))
+		  header(sprintf("Location: %s", $_SESSION["lastPage"]));
 		else
 		   header("Location: index.php");
 		exit();

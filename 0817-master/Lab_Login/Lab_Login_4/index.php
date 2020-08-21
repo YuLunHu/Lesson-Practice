@@ -1,7 +1,7 @@
 <?php 
-
-if (isset($_COOKIE["userName"]))
-  $sUserName = $_COOKIE["userName"];
+session_start();
+if (isset($_SESSION["userName"]))
+  $sUserName = $_SESSION["userName"];
 else 
   $sUserName = "Guest";
 
@@ -17,7 +17,7 @@ else
 
 <table width="300" border="0" align="center" cellpadding="5" cellspacing="0" bgcolor="#F2F2F2">
   <tr>
-    <td align="center" bgcolor="#CCCCCC"><font color="#FFFFFF">會員系統 - 首頁</font></td>
+    <td align="center" bgcolor="#CCCCCC"><font color="#FFFFFF"><?php echo "會員系統 - 首頁" ?></font></td>
   </tr>
   <tr>
   
