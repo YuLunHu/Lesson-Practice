@@ -7,6 +7,8 @@ session_start();
 if (isset($_GET["logout"]))
 {
   // setcookie("userName", "Guest", time() - 3600); // 設定cookie有效期限過期，就能清除
+  unset($_SESSION["userName"]);
+  
   $_SESSION['userName'] = "Guest";
 	header("Location: index.php");
 	exit();

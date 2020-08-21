@@ -3,7 +3,8 @@ session_start();
 
 if (!isset($_SESSION["userName"]))
 {
-	setcookie("lastPage", "secret.php");
+  
+	// setcookie("lastPage", "secret.php");
 	header("Location: login.php");
 	exit();
 	
