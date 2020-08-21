@@ -27,6 +27,6 @@ MultiLines;
 
 $doc = new DOMDocument();  
 $doc->loadXML($xmlString); 
-header("Content-type: text/xml", true);
-echo $doc->c14n();
+header("Content-type: text/xml", true); // 若不加瀏覽器會認為是html文件
+echo $doc->c14n(); // c14n轉字串的意思
 ?>

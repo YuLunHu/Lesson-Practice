@@ -1,3 +1,6 @@
+<?php
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,5 +10,6 @@
 </head>
 <body>
     <H1>Hello! <?= $data->name ?></H1>
+    <img src="/EasyMVC/images/Diamond.png">
 </body>
 </html>
